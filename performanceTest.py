@@ -44,13 +44,13 @@ def check_T_input(t):
         return int(t)
 
 
-def performance(algo=None):
+def performance(algo=""):
     """
     algo: the UnionFind algorithm: QF, QU, WQU, WQUH, WQUPC
     T: the number of trials
     N: the starting number of sites
     """
-    if algo is None:
+    if algo is "":
         algo = DEFAULT_ALGO_0
     T = input("Enter number of trials: ")
     T = check_T_input(T)
@@ -60,6 +60,8 @@ def performance(algo=None):
     connections, avg_connections = ER.main(N, algo)
     prev_elapsed_time = time.time() - start
     T -= 1
+    print()
+    print('algo:', algo)
     print("{:<10}{:<18}{:<18}{:<10}".format("N", "num_connections",
                                             "avg_connections",
                                             "curr_time : prev_time"))
@@ -73,13 +75,13 @@ def performance(algo=None):
             time_ratio = INF
         else:
             time_ratio = elapsed_time / prev_elapsed_time
-        print("{:<10}{:<18}{:<18}{:<10}". \
-            format(N, connections, avg_connections, time_ratio))
+        print("{:<10}{:<18}{:<18}{:<10}".
+              format(N, connections, avg_connections, time_ratio))
         prev_elapsed_time = elapsed_time
         T -= 1
 
 
-def compare_algos(algo="WQUH", algo2="WQUPC"):
+def compare_algos(algo="", algo2=""):
     if algo is "":
         algo = "WQUH"
     if algo2 is "":
@@ -88,6 +90,8 @@ def compare_algos(algo="WQUH", algo2="WQUPC"):
     T = check_T_input(T)
     N = input("Enter starting N (64 - 500): ")
     N = check_N_input(N)
+    print()
+    print('algo1:', algo, 'algo2:', algo2)
     print("{:<10}{:<18}".format("N", "algo1:algo2"))
     print()
     while T > 0:
@@ -97,7 +101,7 @@ def compare_algos(algo="WQUH", algo2="WQUPC"):
         T -= 1
 
 
-def main(func_num = ""):
+def main(func_num=""):
     test = {"1": performance, "0": compare_algos}
     if func_num is "":
         func_num = "1"
