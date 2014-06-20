@@ -96,7 +96,7 @@ def compare_algos(algo="", algo2=""):
     print()
     while T > 0:
         N, algo_to_algo2_ratio = ER.main(N, algo, algo2)
-        print("{:<10}{:<18}".format(N, algo_to_algo2_ratio))
+        print("{:<10}{:<18.3}".format(N, algo_to_algo2_ratio))
         N = 2 * N
         T -= 1
 
