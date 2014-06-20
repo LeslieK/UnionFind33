@@ -75,7 +75,7 @@ def performance(algo=""):
             time_ratio = INF
         else:
             time_ratio = elapsed_time / prev_elapsed_time
-        print("{:<10}{:<18}{:<18}{:<10}".
+        print("{:<10}{:<18}{:<18.2}{:<10.2}".
               format(N, connections, avg_connections, time_ratio))
         prev_elapsed_time = elapsed_time
         T -= 1
