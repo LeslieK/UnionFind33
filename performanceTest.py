@@ -118,6 +118,10 @@ def main(func_num=""):
 
 ########################################################
 if __name__ == "__main__":
+    print('algorithms:')
+    for algo in ALGOS:
+        print(algo, end=' ')
+    print()
     num = input("Enter test: \
      [0: compare algos  1: test single algo]: default is 1: ")
     main(num)
