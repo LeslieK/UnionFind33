@@ -1,3 +1,6 @@
+usage:
+$ python performanceTest.py
+
 performanceTest.py
 This is the top level program.
 Enter the test to run:
