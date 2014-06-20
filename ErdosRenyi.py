@@ -141,6 +141,15 @@ def model(N=64, algo="WQUH"):
 
 ###############################################
 if __name__ == "__main__":
-    N = raw_input("Enter N: ")
-    algo = raw_input("Enter algo: ")
-    print(model(int(N), algo))
+    N = input("Enter N: ")
+    algo = input("Enter algo: ")
+    if N == "":
+        N = 64
+    if algo == "":
+        algo = "WQUH"
+    print('N:', N, 'algo:', algo)
+    print()
+    print('number of random connections needed to connect N sites')
+    print('{:10s} {:10s}'.format('theory', 'experiment'))
+    theory, experiment = model(int(N), algo)
+    print('{:<10.3f} {:<10.2f}'.format(theory, experiment))
